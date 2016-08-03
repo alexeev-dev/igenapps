@@ -1,0 +1,35 @@
+@import "compass";
+
+.navbar {
+	display: none; padding-top: 0;
+	background: #ffffff; @include box-shadow(3px 4px 9px 0px rgba(0, 0, 0, 0.15));
+}
+.navbar { .inner {background: transparent; @include box-shadow(none);}}
+.main-navigation > .menu > li.menu-item-has-children > a::after {display: none;}
+.pricing-table-container .pricing-header {height: 470px;}
+.client {opacity: .6;}
+.intro-section {padding-top:80px;}
+.intro-section { .form-element { i {color: #fff;} } }
+.form-control.temp {color: #fff;border-color: #fff;}
+.form-control.temp::-moz-placeholder {color: #fff;}
+.form-control.temp:-ms-input-placeholder {color: #fff;}
+.form-control.temp::-webkit-input-placeholder {color: #fff;}
+.copyright {border: none;}
+.social-bar {
+	text-align: center; position: relative; top: 4px;
+
+	a {font-size: 24px;}
+}
+.footer { .copyright { .inner { .column {padding-right: 0;} } } }
+.pricing-section .pricing-table > table thead .plan-name .label {color: #617081; background: #ffffff; left: -85px; width: 80px;}
+.social-bar .sb-instagram {margin-right: 0;}
+.pricing-table > table tbody td {border-left: 1px solid #ffffff;border-bottom: 1px solid #ffffff;}
+.pricing-table > table tbody {color: #ffffff;}
+.pricing-table > table tbody a.btn {
+	color: #617081;
+	background: #ffffff; border: solid 1px #ffffff;
+	&:hover {
+		color: #ffffff;
+		background: transparent;
+	}
+}
