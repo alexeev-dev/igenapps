@@ -53,7 +53,7 @@ $(document).ready(function() {
 	$('.block2 .js-goRight').on('click',function(){
 		$('.block2').removeClass('animated fadeOutRight fadeOutLeft').addClass('animated fadeOutLeft').css('position','absolute').delay(750).queue(function () { $(this).css('display','block'); $(this).dequeue();});
 		$('.block4').removeClass('animated fadeOutRight').addClass('animated fadeInRight').css({'display':'block', 'position':'relative'});
-		$('.header-tlt2').removeClass('animated fadeOutRight fadeInRight fadeOutLeft fadeInLeft').addClass('animated fadeOutLeft').queue(function () { $(this).css('position', 'absolute'); $(this).dequeue();});;
+		$('.header-tlt2').removeClass('animated fadeOutRight fadeInRight fadeOutLeft fadeInLeft').addClass('animated fadeOutLeft').css('position', 'absolute').delay(750).queue(function () { $(this).css('display','none'); $(this).dequeue();});
 		$('.header-tlt4').removeClass('animated fadeOutRight fadeInRight fadeOutLeft fadeInLeft').addClass('animated fadeInRight').queue(function () { $(this).css({'display':'block','position':'relative'}); $(this).dequeue();});;
 		$('.block4-tlt1').delay(750).queue(function () { $(this).textillate(); $(this).dequeue();});
 		$('.block4 .signature i').delay(750).queue(function () { $(this).addClass('animated zoomIn').css('opacity','1'); $(this).dequeue();});
@@ -61,8 +61,8 @@ $(document).ready(function() {
 	$('.js-goBackLeft').on('click',function(){
 		$('.block4').removeClass('animated fadeInRight').addClass('animated fadeOutRight').css('position','absolute').delay(750).queue(function () { $(this).css('display','block'); $(this).dequeue();});
 		$('.block2').removeClass('animated fadeOutLeft fadeOutRight fadeInRight fadeInLeft').addClass('animated fadeInLeft').delay(750).queue(function () { $(this).css({'display':'block', 'position':'relative'}); $(this).dequeue();});
-		$('.header-tlt4').removeClass('animated fadeOutRight fadeInRight fadeOutLeft fadeInLeft').addClass('animated fadeOutRight').queue(function () { $(this).css('position', 'absolute'); $(this).dequeue();});;
-		$('.header-tlt2').removeClass('animated fadeOutRight fadeInRight fadeOutLeft fadeInLeft').addClass('animated fadeInLeft').delay(750).queue(function () { $(this).css('position','relative'); $(this).dequeue();});;
+		$('.header-tlt4').removeClass('animated fadeOutRight fadeInRight fadeOutLeft fadeInLeft').addClass('animated fadeOutRight').css('position', 'absolute').delay(750).queue(function () { $(this).css('display','none'); $(this).dequeue();});
+		$('.header-tlt2').removeClass('animated fadeOutRight fadeInRight fadeOutLeft fadeInLeft').addClass('animated fadeInLeft').queue(function () { $(this).css({'display':'block','position':'relative'}); $(this).dequeue();});;
 	});
 	$('.js-continue').on('click', function(){
 		$('.header-tlt2').addClass('animated zoomOut').delay(750).queue(function () { $(this).css('display','none'); $(this).dequeue();});
