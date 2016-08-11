@@ -57,17 +57,17 @@ $(document).ready(function() {
 	});
 
 	// HOME Video Popup
-	// var $videoBtn = $( '.video-popup-btn' );
-	// if( $videoBtn.length > 0 ) {
-	// 	$videoBtn.magnificPopup( {
-	// 		type: 'iframe',
-	// 		mainClass: 'mfp-fade',
-	// 		removalDelay: 500,
-	// 		gallery: {
-	// 			enabled: false
-	// 		}
-	// 	} );
-	// }
+	var $videoBtn = $( '.video-popup-btn' );
+	if( $videoBtn.length > 0 ) {
+		$videoBtn.magnificPopup( {
+			type: 'iframe',
+			mainClass: 'mfp-fade',
+			removalDelay: 500,
+			gallery: {
+				enabled: false
+			}
+		} );
+	}
 	
 	// HOME Mobile-carousel in phone-slider-section
 	if ($('.mobile-carousel').length) {
@@ -187,18 +187,23 @@ $(document).ready(function() {
 				autoHeight: false,
 				responsive:{
 					320:{
+						slideBy: 1,
 						items:1
 					},
 					479:{
+						slideBy: 2,
 						items:2
 					},
 					768:{
+						slideBy: 2,
 						items:2
 					},
 					980:{
+						slideBy: 4,
 						items:4
 					},
 					1199:{
+						slideBy: 6,
 						items:6
 					}
 				}
@@ -245,7 +250,19 @@ $(document).ready(function() {
 	$('.js-getApp').on('click',function(){
 		$('.intro-section form .col-sm-9').css('opacity','1');
 		$('.intro-section form').css('transform','translateX(0)');
+
+		// ЭТО НУЖНО БУДЕТ ОТРЕФАКТОРИТЬ
+		$('.js-getApp').addClass('animated zoomOut').delay(600).queue(function () { $(this).css('display','none'); $(this).dequeue();});
+		$('.js-sendLink').delay(600).addClass('animated zoomIn').queue(function () { $(this).css('display','block'); $(this).dequeue();});
+
 		return false; // !!!!!!!!!!!!!!!! DELETE IT!
+	});
+
+	// ЭТО НУЖНО БУДЕТ ОТРЕФАКТОРИТЬ
+	$('.js-sendLink').on('click', function(){
+		$('.intro-section form').addClass('animated zoomOut').delay(750).queue(function () { $(this).css('display','none'); $(this).dequeue();});
+		$('.js-hideRow').delay(750).queue(function () { $(this).addClass('animated fadeInBottom').css('display','block'); $(this).dequeue();});
+		$('.js-hideRow p').delay(1000).queue(function () { $(this).textillate(); $(this).dequeue();});
 	});
 
 	// js download button intro section

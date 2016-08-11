@@ -21,7 +21,18 @@
 	a {font-size: 24px;}
 }
 .footer .copyright .copy-text {color: #b3b3b3;}
-.footer { .copyright { .inner { .column {padding-right: 0; width: 33%;} } } }
+.footer {
+	.copyright {
+		.inner {
+			.column {
+				padding-right: 0; width: 33%;
+
+				@media all and (max-width: 991px) {margin: 0 auto;}
+				@media all and (max-width: 768px) {width: 100%;}
+			}
+		}
+	}
+}
 .pricing-section .pricing-table > table thead .plan-name .label {color: #617081; background: #ffffff; left: -85px; width: 80px;}
 .footer .copyright .social-bar > a:last-child {margin-right: 16px;}
 .pricing-table > table tbody td {border-left: 1px solid #ffffff;border-bottom: 1px solid #ffffff;}

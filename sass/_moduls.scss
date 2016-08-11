@@ -1,5 +1,8 @@
 @import "compass";
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic);
+@include font-face('BrandonGrotesque', font-files('../fonts/BrandonGrotesque/BrandonGrotesque.eot','../fonts/BrandonGrotesque/BrandonGrotesque.ttf','../fonts/BrandonGrotesque/BrandonGrotesque.svg','../fonts/BrandonGrotesque/BrandonGrotesque.woff','../fonts/BrandonGrotesque/BrandonGrotesque.woff2'));
+
 .nopadding {
 	padding: 0;
 }
@@ -107,35 +110,26 @@
 		max-width: 53.125em; width: 100%;
 		margin: 0 auto;
 
-		p {
-			font: italic 300 2.125em "Lato", Helvetica, Arial, sans-serif;
-			line-height: 1.6;
-			letter-spacing: 0.02em;
-			color: #fff;
-
-			p.name {
-				font: normal 500 0.75em "brandon-grotesque", sans-serif;
-				text-transform: uppercase;
-				color: #939da5;
-				letter-spacing: 0.15em;
-				margin-top: 3.66667em;
-
-				@media screen and (min-width: 90.625em) {
-					font-size: 0.875em;
-					margin-top: 3.14286em;
-				}
-			}
-
-			@media screen and (min-width: 90.625em) {
-				font-size: 2.5em;
-			}
+		&-1 {
+			background: url('../img/testimonials/home-background-quote-mailchimp.jpg') center center no-repeat;
+		}
+		&-2 {
+			background: url('../img/testimonials/home-background-quote-twitter.jpg') center center no-repeat;
+		}
+		&-3 {
+			background: url('../img/testimonials/home-background-quote-netflix.jpg') center center no-repeat;
+		}
+		&-4 {
+			background: url('../img/testimonials/home-background-quote-uber.jpg') center center no-repeat;
+		}
+		&-5 {
+			background: url('../img/testimonials/home-background-quote-evernote.jpg') center center no-repeat;
 		}
 	}
 
 	.slide {
 		text-align: center;
 		z-index: 5; transform: translate3d(0px, 0px, 0px); position: absolute;
-		background: none;
 		
 		&:before {
 			content: "";
@@ -147,8 +141,47 @@
 		}
 
 		.quote {
-			transition: opacity 0.3s ease;
-			transform-style: preserve-3d;
+
+			position: absolute; top: 45%; left: 50%; @include transform(translate(-50%,-50%));
+
+			p {
+				color: #fff; font: italic 300 2.5em "Open Sans", "open-sans", sans-serif;line-height: 1.6;letter-spacing: 0.02em;
+
+				@media all and (max-width: 768px) {font-size: 2em; padding: 0 20px;}
+				@media all and (max-width: 481px) {font-size: 1.5em;}
+
+				@media screen and (min-width: 90.625em) {
+					font-size: 2.5em;
+				}
+
+				&.name {
+					color: #939da5; font: normal 500 0.75em "BrandonGrotesque", sans-serif; text-transform: uppercase; letter-spacing: 0.15em;
+					margin-top: 3.66667em; margin-bottom: 0;
+
+					@media screen and (min-width: 90.625em) {
+						font-size: 0.875em;
+						margin-top: 3.14286em;
+					}
+				}
+			}
+
+			a.play {
+				display: inline-block; width: 50px; height: 50px; margin-top: 2.625em; position: relative;
+
+				img {
+					width: 100%;
+					@include transition(opacity 0.25s ease-out);
+
+					&.play-hover {
+						position: absolute; left: 0; top: 0; width: 50px; height: 50px;
+						opacity: 0;
+					}
+				}
+
+				&:hover {
+					img.play-hover {opacity: 1;}
+				}
+			}
 		}
 
 		&.active {
@@ -576,7 +609,9 @@
 			position: absolute; top:33%; width: 100%;
 
 			img {
-				width: 550px; display: inline-block;
+				width: 450px; display: inline-block;
+
+				@media all and (max-width: 481px) {width: 280px;}
 			}
 			h1 {
 				text-align: center;
@@ -639,7 +674,7 @@
 .feature-section {
 
 	.box-with-icon {
-		padding: 15px 0;
+		padding: 32px 22px 28px 22px;
 
 		h3 {
 			text-transform: uppercase;
@@ -655,6 +690,145 @@
 }
 .video-demo-section {}
 .our-team-section {
+
+	.block-title {
+		@media all and (max-width: 768px) {margin-bottom: 0;}
+	}
+
+	.our-team {
+		position: relative; height: 400px; overflow: hidden;
+
+		@media all and (max-width: 1199px) {height: 350px;}
+		@media all and (max-width: 991px) {height: 300px;}
+		@media all and (max-width: 481px) {height: auto;}
+
+		& > div {
+			position: absolute; left: -4px; bottom: 0; width: 262px;
+
+			img {
+				width: 100%;
+				opacity: 0;
+				@include transition(opacity 0.25s ease-out);
+			}
+
+			p {
+				color: #617081; text-align: center;
+				position: absolute; width: 108px;
+
+				@media all and (max-width: 768px) {
+					font-size: 12px;
+				}
+
+				span {
+					display: block;
+					opacity: 0.7;
+				}
+			}
+
+			&:hover {
+				img {opacity: 1;}
+			}
+		}
+
+		.our-team-person-1 {
+			left: -4px; bottom: 0; width: 262px; z-index: 5;
+			background: url('../img/moduls/our-team-bg1.png') center bottom no-repeat; background-size: 100%, auto;
+
+			@media all and (max-width: 1199px) {
+				left: 20px; width: 182px;
+			}
+			@media all and (max-width: 991px) {
+				left: 1%; width: 24%;
+			}
+
+			p {
+				top: -45px; left: 132px;
+				@media all and (max-width: 1199px) {
+					left: 75px;
+				}
+				@media all and (max-width: 768px) {
+					left: 50%; @include transform(translateX(-50%));
+				}
+			}
+		}
+		.our-team-person-2 {
+			left: 219px; bottom: -125px; width: 313px; z-index: 1;
+			background: url('../img/moduls/our-team-bg2.png') center bottom no-repeat; background-size: 100%, auto;
+
+			@media all and (max-width: 1199px) {
+				width: 217px; left: 186px; bottom: -113px;
+			}
+			@media all and (max-width: 991px) {
+				left: 23%; width: 24%; bottom: -73px;
+			}
+
+			p {
+				top: -45px; left: 135px;
+				@media all and (max-width: 1199px) {
+					left: 75px; top: -73px;
+				}
+				@media all and (max-width: 768px) {
+					left: 60%; @include transform(translateX(-50%));
+				}
+			}
+		}
+		.our-team-person-3 {
+			left: 461px; bottom: -130px; width: 455px; z-index: 3;
+			background: url('../img/moduls/our-team-bg3.png') center bottom no-repeat; background-size: 100%, auto;
+
+			@media all and (max-width: 1199px) {
+				left: 360px; width: 339px; bottom: -96px;
+			}
+			@media all and (max-width: 991px) {
+				left: 43%; width: 36%; bottom: -41px;
+			}
+
+			p {
+				top: -28px; left: 139px;
+				@media all and (max-width: 1199px) {
+					left: 91px;
+				}
+				@media all and (max-width: 768px) {
+					left: 50%; @include transform(translateX(-50%));
+				}
+			}
+		}
+		.our-team-person-4 {
+			left: 788px; bottom: -41px; width: 262px; z-index: 4;
+			background: url('../img/moduls/our-team-bg4.png') center bottom no-repeat; background-size: 100%, auto;
+
+			@media all and (max-width: 1199px) {
+				left: 600px; width: 208px;
+			}
+			@media all and (max-width: 991px) {
+				left: 74%; width: 24%;
+			}
+
+			p {
+				top: -45px; left: 85px;
+				@media all and (max-width: 1199px) {
+					left: 60px;
+				}
+				@media all and (max-width: 768px) {
+					left: 50%; @include transform(translateX(-50%));
+				}
+			}
+		}
+
+		.our-team-person-1, .our-team-person-2, .our-team-person-3, .our-team-person-4 {
+			@media all and (max-width: 481px) {
+				width: 220px; margin: 0 auto 20px; position: relative; left: 0; bottom: 0; padding: 0;
+				background-position: center top;
+
+				p {
+					position: relative; top: 0; left: 0; @include transform(translateX(0)); margin: 10px auto 0;
+				}
+			}
+		}
+	}
+
+	
+
 	.box-with-image-image {
 		position: relative;
 
@@ -882,6 +1056,14 @@
 						font-weight: 300;
 						padding: 15px;
 						opacity: 0.7;
+
+						@media all and (max-width: 481px) {font-size: 12px;}
+
+						br {
+							display: none;
+
+							@media all and (max-width:768px) {display: block;}
+						}
 					}
 				}
 			}
@@ -1019,6 +1201,24 @@
 		}
 	}
 
+	.hideRow {
+		display: none;
+
+		p {
+			color: #ffffff; font-size: 18px; line-height: 48px; text-align: center;
+			margin-bottom: 0;
+
+			visibility: hidden;
+			span {
+				span {
+					span {
+						visibility: hidden;
+					}
+				}
+			}
+		}
+	}
+
 	form {
 		display: block; @include transform(translate(-38%, 0));
 		transition: all .4s;
@@ -1026,7 +1226,7 @@
 		button {
 			background: #fff; color: #404040;
 
-			&.getApp {
+			&.getApp, &.sendLink {
 				color: #ffffff;
 				background: transparent; border: solid 1px #ffffff;
 				transition: all .4s;
@@ -1038,6 +1238,10 @@
 				&:active {
 					transform: scale(1);
 				}
+			}
+
+			&.sendLink {
+				display: none;
 			}
 		}
 		@media all and (max-width: 768px) {
@@ -1241,6 +1445,8 @@
 .mobApp {
 	overflow: hidden; height: 570px; padding-top: 100px;
 	background: #3267ae url('../img/moduls/facebook-bg-logo.png') 15% 100% no-repeat;
+
+	@media all and (max-width: 768px) {height: 670px;}
 	.mobAppInner {width: 100%; position: relative;}
 
 	.header-block {
@@ -1297,7 +1503,7 @@
 
 			i {
 				color: #ffffff; letter-spacing: 0.1px;
-				position: absolute; top: 15px; right: 75px;
+				position: absolute; top: 15px; right: 65px;
 			}
 
 			&:hover {
@@ -1354,7 +1560,7 @@
 				left: -60px;
 			}
 			p {
-				color: #f0f0f0; font-size: 18px; text-transform: uppercase;
+				color: #f0f0f0; font-size: 18px;
 				display: inline-block; margin-bottom: 0;
 				opacity: 0;
 			}
@@ -1365,7 +1571,7 @@
 		}
 		p {
 			color: #f0f0f0; font-weight: 300; font-size: 24px; letter-spacing: 0.3px;
-			margin-bottom: 28px;
+			margin-bottom: 42px;
 
 			&.signature {
 				color: #f0f0f0; font-size: 14px; letter-spacing: 1.1px;
@@ -1385,7 +1591,7 @@
 		}
 		a.edit {
 			color: #f0f0f0; font-size: 16px; font-weight: 300; text-decoration: none; letter-spacing: 0.1px;
-			display: inline-block; margin-bottom: 22px; opacity: 0;
+			display: inline-block; margin-bottom: 8px; opacity: 0;
 			cursor: pointer;
 
 			&:hover {text-decoration: underline;}
@@ -1409,6 +1615,16 @@
 				display: inline-block; margin:  0 90px 4px;
 			}
 			.leftBtn, .rightBtn {opacity: 0;}
+
+			@media all and (max-width: 991px) {
+				p {
+					margin: 0 0 29px;
+				}
+				.devider {
+					display: block; margin:  0 auto 4px;
+				}
+				.rightBtn {opacity: 0;}
+			}
 		}
 		&-style2 {
 			p {
@@ -1481,6 +1697,10 @@
 			color: #f0f0f0; font-weight: 300; font-size: 14px; letter-spacing: 0.13px;
 			margin-bottom: 70px; margin-left: 29px;
 
+			@media all and (max-width: 768px) {
+				margin-left: 0; margin-bottom: 30px;
+			}
+
 			&.signature {
 				color: #f0f0f0; font-size: 14px; letter-spacing: 1.1px;
 				margin-left: 8px; margin-bottom: 0;
@@ -1495,9 +1715,18 @@
 		form {
 			text-align: left;
 			margin-left: 359px; margin-bottom: 38px;
+
+			@media all and (max-width: 991px) {
+				margin-left: 0; margin-bottom: 0;
+			}
 			
 			.form-element {
 				display: inline-block; width: 33%;
+
+				@media all and (max-width: 768px) {
+					width: 100%; display: block; margin-bottom: 0;
+				}
+
 				i {
 					color: #f0f0f0;
 					font-size: 19px;
@@ -1520,12 +1749,21 @@
 			width: 270px;margin-right: 148px;margin-bottom: 44px;
 			background: transparent; border: solid 1px #ffffff;
 
+			@media all and (max-width: 991px) {
+				margin-right: 0; margin-bottom: 15px;
+			}
+
 			&:hover {
 				color: #314777;
 				background: #ffffff;
 				i {
 					color: #314777;
 				}
+			}
+		}
+		a.back.left {
+			@media all and (max-width: 991px) {
+				position: relative; left: 0; top: 0; display: block; margin: 0 auto;
 			}
 		}
 	}
@@ -1580,6 +1818,8 @@
 				}
 			}
 		}
+
+
 
 		img {
 			position: absolute; top: 100px; left: 2px;
